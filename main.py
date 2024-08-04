@@ -9,7 +9,6 @@ import Quartz
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
-
 # one of required parameters for `CGGetActiveDisplayList()`, change if needed
 MAX_DISPLAYS = 16
 DEFAULT_SLEEP_TIME_SECONDS = 1
@@ -87,7 +86,8 @@ def main():
         is_external, is_lid_closed = get_display_info()
 
         if (is_external, is_lid_closed) != last_state:
-            logger.info(f"External display state changed to is_external={is_external}")
+            logger.info(
+                f"External display state changed to is_external={is_external}")
             if is_external:
                 if args.closed_lid:
                     if is_lid_closed:
