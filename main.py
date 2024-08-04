@@ -16,11 +16,13 @@ DEFAULT_SLEEP_TIME_SECONDS = 1
 
 
 class DisplayInfo(NamedTuple):
+    """ """
     id: int
     is_builtin: bool
 
 
 def _get_all_displays() -> list[DisplayInfo]:
+    """ """
     display_ids = Quartz.CGGetActiveDisplayList(16, None, None)[1]
 
     display_info = []
@@ -46,18 +48,21 @@ def get_display_info() -> list[bool, bool]:
 
 
 def hide_dock():
+    """ """
     os.system(
         "osascript -e 'tell application \"System Events\" to set the autohide of the dock preferences to true'"
     )
 
 
 def show_dock():
+    """ """
     os.system(
         "osascript -e 'tell application \"System Events\" to set the autohide of the dock preferences to false'"
     )
 
 
 def main():
+    """ """
     logger.info("Starting...")
 
     parser = argparse.ArgumentParser()
